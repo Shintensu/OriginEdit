@@ -11,6 +11,8 @@
 
 #define SAVESLOTNULL &((struct SaveSlot *)nullptr)
 
+// Widget containing information pertaining to the players starting location.
+// After attaching to the game, allows to load the values from and to the game.
 AreaInfoWidget::AreaInfoWidget(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::AreaInfoWidget)
@@ -119,6 +121,13 @@ void AreaInfoWidget::ProcessHandlerEnabled(GameProcessHandler* gameProcessHandle
 
 void AreaInfoWidget::LoadValuesFromGame()
 {
+    if (m_gameProcessHandler->m_processID != m_gameProcessHandler->GetProcessID(L"okami.exe"))
+    {
+        ProcessHandlerDisabled();
+        delete m_gameProcessHandler;
+        return;
+    }
+
     Vec3 coordinates = m_gameProcessHandler->GetTypeValue<Vec3>(0xB6B2D0, {0}, 0x80); // Gets pl00 base address and offsets by 0x80 to directly go to the coordinates, skipping the intermediate pointer the game uses to access them
     ui->xSpinBox->setValue(coordinates.x);
     ui->ySpinBox->setValue(coordinates.y);

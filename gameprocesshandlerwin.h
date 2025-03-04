@@ -24,8 +24,6 @@ public:
     template<typename T>
     void SetTypeValue(uintptr_t baseAddressOffset, QVector<unsigned int> offsets, uintptr_t additionalOffset, T input);
     void FlipBit(uintptr_t baseAddressOffset, QVector<unsigned int> offsets, uintptr_t additionalOffset, int bitIndex);
-    //Vec3 GetVec3(uintptr_t baseAddressOffset, QVector<unsigned int> offsets, uintptr_t additionalOffset);
-    //qint16 Getqint16(uintptr_t baseAddressOffset, QVector<unsigned int> offsets, uintptr_t additionalOffset);
 
 public:
     DWORD m_processID;

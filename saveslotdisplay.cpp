@@ -9,6 +9,7 @@
 #include "mainwindow.h"
 #include "savefileinfowidget.h"
 
+// The representation of each save slot in the editor. Contains some UI elements, drag and drop handling and the address of the saveslot it represents
 SaveSlotDisplay::SaveSlotDisplay(QWidget *parent, SaveSlot *pSaveSlot, int index)
     : QFrame(parent)
     , ui(new Ui::SaveSlotDisplay)

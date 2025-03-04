@@ -564,8 +564,8 @@
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>445</width>
-                    <height>536</height>
+                    <width>85</width>
+                    <height>159</height>
                    </rect>
                   </property>
                   <layout class="QVBoxLayout" name="verticalLayout_8">
@@ -634,8 +634,8 @@
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>445</width>
-                    <height>536</height>
+                    <width>18</width>
+                    <height>18</height>
                    </rect>
                   </property>
                   <layout class="QVBoxLayout" name="verticalLayout_9"/>
@@ -662,7 +662,7 @@
         <property name="geometry">
          <rect>
           <x>10</x>
-          <y>10</y>
+          <y>60</y>
           <width>231</width>
           <height>43</height>
          </rect>
@@ -691,7 +691,7 @@
         <property name="geometry">
          <rect>
           <x>10</x>
-          <y>60</y>
+          <y>110</y>
           <width>231</width>
           <height>43</height>
          </rect>
@@ -716,7 +716,7 @@
         <property name="geometry">
          <rect>
           <x>10</x>
-          <y>110</y>
+          <y>160</y>
           <width>181</width>
           <height>61</height>
          </rect>
@@ -738,16 +738,55 @@
          </item>
         </layout>
        </widget>
+       <widget class="QLabel" name="label">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>20</y>
+          <width>121</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Not yet implemented</string>
+        </property>
+       </widget>
       </widget>
       <widget class="QWidget" name="Unlocks">
        <attribute name="title">
         <string>Unlocks</string>
        </attribute>
+       <widget class="QLabel" name="label_2">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>20</y>
+          <width>121</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Not yet implemented</string>
+        </property>
+       </widget>
       </widget>
       <widget class="QWidget" name="Other">
        <attribute name="title">
         <string>Other</string>
        </attribute>
+       <widget class="QLabel" name="label_3">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>20</y>
+          <width>121</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Not yet implemented</string>
+        </property>
+       </widget>
       </widget>
      </widget>
     </item>

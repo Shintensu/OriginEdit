@@ -3,6 +3,7 @@
 
 #include "mainwindow.h"
 
+// Default widget for any items in the game
 ItemWidget::ItemWidget(QWidget *parent, QString labelText, size_t itemCountOffset)
     : QWidget(parent)
     , ui(new Ui::ItemWidget)

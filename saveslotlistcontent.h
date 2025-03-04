@@ -15,6 +15,7 @@ protected:
     virtual void dragEnterEvent(QDragEnterEvent *event) override;
     virtual void dragMoveEvent(QDragMoveEvent *event) override;
     virtual void dropEvent(QDropEvent *event) override;
+    virtual void dragLeaveEvent(QDragLeaveEvent *event) override;
 
 public slots:
     void updateState(State updatedState);

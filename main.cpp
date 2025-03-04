@@ -4,6 +4,7 @@
 #include <QLocale>
 #include <QTranslator>
 
+//default Qt QApplication initialization
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);

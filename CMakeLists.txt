@@ -26,7 +26,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(okami-save-editor-qt
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
-        pointerlistmodel.h pointerlistmodel.cpp
+
         SaveSlot.h
         itemwidget.h itemwidget.cpp itemwidget.ui
         weaponwidget.h weaponwidget.cpp weaponwidget.ui

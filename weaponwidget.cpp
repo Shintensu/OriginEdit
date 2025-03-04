@@ -3,6 +3,7 @@
 
 #include "mainwindow.h"
 
+// Essentially the same as ItemWidget, but with added checkboxes for weapon upgrade state
 WeaponWidget::WeaponWidget(QWidget *parent, QString labelText, size_t weaponCountOffset, size_t upgradeByteOffset, size_t upgradeBitIndex)
     : QWidget(parent)
     , ui(new Ui::WeaponWidget)

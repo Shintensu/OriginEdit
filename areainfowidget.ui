@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>590</width>
-    <height>458</height>
+    <height>492</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -28,7 +28,7 @@
      <property name="maximumSize">
       <size>
        <width>16777215</width>
-       <height>400</height>
+       <height>440</height>
       </size>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -218,6 +218,12 @@
          </item>
          <item>
           <widget class="QDoubleSpinBox" name="xSpinBox">
+           <property name="prefix">
+            <string>x: </string>
+           </property>
+           <property name="suffix">
+            <string/>
+           </property>
            <property name="minimum">
             <double>-100000.000000000000000</double>
            </property>
@@ -228,6 +234,12 @@
          </item>
          <item>
           <widget class="QDoubleSpinBox" name="ySpinBox">
+           <property name="prefix">
+            <string>y: </string>
+           </property>
+           <property name="suffix">
+            <string/>
+           </property>
            <property name="minimum">
             <double>-100000.000000000000000</double>
            </property>
@@ -238,6 +250,12 @@
          </item>
          <item>
           <widget class="QDoubleSpinBox" name="zSpinBox">
+           <property name="prefix">
+            <string>z: </string>
+           </property>
+           <property name="suffix">
+            <string/>
+           </property>
            <property name="minimum">
             <double>-100000.000000000000000</double>
            </property>
@@ -264,6 +282,15 @@
             </item>
             <item>
              <widget class="QDoubleSpinBox" name="uSpinBox">
+              <property name="maximumSize">
+               <size>
+                <width>60</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="prefix">
+               <string>u: </string>
+              </property>
               <property name="minimum">
                <double>-1000.000000000000000</double>
               </property>
@@ -324,6 +351,15 @@
             </item>
             <item>
              <widget class="QDoubleSpinBox" name="vSpinBox">
+              <property name="maximumSize">
+               <size>
+                <width>60</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="prefix">
+               <string>v: </string>
+              </property>
               <property name="minimum">
                <double>-1000.000000000000000</double>
               </property>
@@ -384,6 +420,15 @@
             </item>
             <item>
              <widget class="QDoubleSpinBox" name="wSpinBox">
+              <property name="maximumSize">
+               <size>
+                <width>60</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="prefix">
+               <string>w: </string>
+              </property>
               <property name="minimum">
                <double>-1000.000000000000000</double>
               </property>

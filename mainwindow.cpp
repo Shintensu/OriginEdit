@@ -13,12 +13,15 @@
 
 MainWindow *mainWindow;
 
+// Using this define to get the offsets for each widgets value more easily
 #define SAVESLOTNULL &((struct SaveSlot *)nullptr)
 
+// Static save slot and file size, probably should make this based on the SaveSlot class, but oh well
 const int saveSlotCount = 30;
 const int saveSlotSize = 0x172A0;
 const int saveFileSize = (saveSlotSize * saveSlotCount);
 
+// Clear out the first save slot list and initialize it as completely empty
 void MainWindow::onNewSaveFile()
 {
     currentSaveSlot = nullptr;
@@ -38,6 +41,8 @@ void MainWindow::onNewSaveFile()
     }
 }
 
+// Save File Opening and saving for both of the save files
+// (I honestly could have just made it take in all needed arguments as a parameter instead of duplicated functions but oh well, here we are)
 void MainWindow::onOpenSaveFile()
 {
     while(!pSaveSlotListContent->m_pBoxLayout->isEmpty())
@@ -73,7 +78,6 @@ void MainWindow::onOpenSaveFile()
         return; //invalid file size, must be 2846400 bytes
     }
 }
-
 void MainWindow::onSaveSaveFile()
 {
     if (!pSaveSlotListContent->m_pBoxLayout->count())
@@ -101,7 +105,6 @@ void MainWindow::onSaveSaveFile()
     }
     outfile.close();
 }
-
 void MainWindow::onOpenSaveFile2()
 {
     while(!pSaveSlotListContent2->m_pBoxLayout->isEmpty())
@@ -137,7 +140,6 @@ void MainWindow::onOpenSaveFile2()
     }
 
 }
-
 void MainWindow::onSaveSaveFile2()
 {
     if (!pSaveSlotListContent2->m_pBoxLayout->count())
@@ -166,6 +168,7 @@ void MainWindow::onSaveSaveFile2()
     outfile.close();
 }
 
+// Changing the state and current view
 void MainWindow::onOpenEditor()
 {
     currentState = Editor;
@@ -173,7 +176,6 @@ void MainWindow::onOpenEditor()
     ui->saveSlotList2->hide();
     emit StateUpdate(Editor);
 }
-
 void MainWindow::onOpenSlotSwap()
 {
     currentState = SlotSwap;
@@ -182,6 +184,7 @@ void MainWindow::onOpenSlotSwap()
     emit StateUpdate(SlotSwap);
 }
 
+// Change the currently selected save slot
 void MainWindow::onSaveSlotSelect(SaveSlot* selectedSaveSlot)
 {
     emit SaveSlotChanged();
@@ -197,6 +200,8 @@ void MainWindow::onSaveSlotSelect(SaveSlot* selectedSaveSlot)
     ui->saveSlotEditTabs->setDisabled(false);
 }
 
+// Handling Attaching and Detaching from the game. Used for functionality in areainfowidget.cpp.
+// The GameProcessHandler also gets deleted there if the button is pressed with the handle invalid.
 void MainWindow::onAttachToGame()
 {
     if (!gameProcessHandler)
@@ -209,7 +214,6 @@ void MainWindow::onAttachToGame()
         else delete gameProcessHandler;
     }
 }
-
 void MainWindow::onDetachFromGame()
 {
     if (gameProcessHandler)
@@ -220,6 +224,7 @@ void MainWindow::onDetachFromGame()
     }
 }
 
+// Checksum algorithm used by the game. Essentially just copied the pseudo code from Ghidra, need to clean this up at some point
 unsigned long long MainWindow::GenerateChecksum(unsigned long long* param_1)
 {
         unsigned long long *puVar1;
@@ -277,19 +282,20 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     mainWindow = this;
-    //m_pSaveSlotList = ui->saveslotList;
+    this->setWindowTitle("Origin Editor");
+    //this->setWindowIcon();
+
+    //hiding the second list here to have the intial state be the "Editor"
     ui->saveSlotList2->hide();
+
+    // setting position manually cuz it was behaving weirdly and kept starting out at the top of the screen after I added the second save slot list
     this->setGeometry(this->geometry().x() + 100.0, this->geometry().y() + 150.0, this->geometry().width(), this->geometry().height());
 
+    // Allocating our memory buffers for the two save files we will be loading
     saveSlots = (SaveSlot*)malloc(saveFileSize);
     saveSlots2 = (SaveSlot*)malloc(saveFileSize);
 
-    /*m_pSaveSlotList->setStyleSheet
-    ("QListView { font-size: 20pt; font-weight: bold; }"
-     "QListView::item { background-color: #E74C3C; padding: 10%;"
-     "border: 1px solid #C0392B; }"
-     "QListView::item::hover {background-color: #C0392B }");
-    */
+    // connecting all menu actions
     connect(ui->actionNew, &QAction::triggered, this, &MainWindow::onNewSaveFile);
     connect(ui->actionOpen_1, &QAction::triggered, this, &MainWindow::onOpenSaveFile);
     connect(ui->actionSave_1, &QAction::triggered, this, &MainWindow::onSaveSaveFile);
@@ -312,6 +318,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+// This function swaps the slots from one list to the other. Gets called by the Saveslots themselves when they get dropped on in the Slotswap state
 void MainWindow::SwapSlots(int listIndex1, int listIndex2)
 {
     QWidget *widget1;
@@ -325,10 +332,9 @@ void MainWindow::SwapSlots(int listIndex1, int listIndex2)
 
     pSaveSlotListContent->m_pBoxLayout->insertWidget(listIndex1, widget2);
     pSaveSlotListContent2->m_pBoxLayout->insertWidget(listIndex2, widget1);
-
-    //pSaveSlotListContent->m_pBoxLayout->insertItem(listIndex1, pSaveSlotListContent2->m_pBoxLayout->replaceWidget(pSaveSlotListContent2->m_pBoxLayout->itemAt(listIndex2)->widget(), pSaveSlotListContent->m_pBoxLayout->itemAt(listIndex1)->widget()));
 }
 
+// Initializing all runtime widgets, which each use offsets to access their revelant data in the currently selected Saveslot
 void MainWindow::InitializeWidgets()
 {
     pSaveFileInfoWidget = new SaveFileInfoWidget(ui->GeneralInformation);
@@ -336,6 +342,7 @@ void MainWindow::InitializeWidgets()
     pSaveSlotListContent = new SaveSlotListContent(ui->saveSlotListBase);
     pSaveSlotListContent2 = new SaveSlotListContent(ui->saveSlotListBase2);
 
+    //connecting both Saveslot lists to the View dropdown options so they can change their functionality depending on the state of the save editor
     connect(this, &MainWindow::StateUpdate, pSaveSlotListContent, &SaveSlotListContent::updateState);
     connect(this, &MainWindow::StateUpdate, pSaveSlotListContent2, &SaveSlotListContent::updateState);
 

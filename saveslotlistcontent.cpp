@@ -8,6 +8,9 @@
 
 int listCounter = 0;
 
+
+// Gets created inside of each of the scroll areas in the mainwindow to contain 30 SaveSlotDisplays each.
+// Handles a good chunk of the drag and drop functionality in Editor mode, but SlotSwapping has been mostly transferred to the SaveSlotDisplays themselves.
 SaveSlotListContent::SaveSlotListContent(QWidget *parent)
     : QWidget{parent}
 {
@@ -136,6 +139,23 @@ void SaveSlotListContent::dropEvent(QDropEvent *event)
             }
         }
         */
+        return;
+    }
+}
+
+void SaveSlotListContent::dragLeaveEvent(QDragLeaveEvent *event)
+{
+    switch (currentState)
+    {
+    case Editor:
+        if (currentSpacerIndex != -1)
+        {
+            m_pBoxLayout->takeAt(currentSpacerIndex);
+            currentSpacerIndex = -1;
+            spacer->hide();
+        }
+        return;
+    case SlotSwap:
         return;
     }
 }

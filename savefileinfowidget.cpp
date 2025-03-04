@@ -5,6 +5,7 @@
 
 #define SAVESLOTNULL &((struct SaveSlot *)nullptr)
 
+// Mostly contains stats displayed in the save slot load selection
 SaveFileInfoWidget::SaveFileInfoWidget(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::SaveFileInfoWidget)

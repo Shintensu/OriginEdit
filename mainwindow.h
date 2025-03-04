@@ -6,7 +6,6 @@
 #include <QStringListModel>
 
 #include "SaveSlot.h"
-#include "pointerlistmodel.h"
 #include "itemwidget.h"
 #include "weaponwidget.h"
 #include "savefileinfowidget.h"
@@ -56,6 +55,8 @@ public slots:
 
 
 signals:
+    // These two functions handle the exchange between the editor and the save file memory buffers.
+    // The pointer passed is to the corresponding save slot in either of the buffers.
     void LoadValuesToEditor(SaveSlot *saveSlot);
     void SaveValuesFromEditor(SaveSlot *saveSlot);
 
@@ -78,8 +79,6 @@ private:
 
     SaveSlot* currentSaveSlot;
     SaveSlot* currentSaveSlot2;
-
-    PointerListModel* ptrListModel;
 
     QVector<ItemWidget*> consumableItemList;
     QVector<ItemWidget*> karmicTransformList;

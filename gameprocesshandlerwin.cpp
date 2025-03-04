@@ -8,7 +8,9 @@
 #include <TlHelp32.h>
 //#include <processthreadsapi.h>
 
-// Credit goes to Guided Hacking for the code in this class
+// Credit goes to Guided Hacking for the majority of the code in this class
+// This class handles attaching to the game and reading/writing its memory.
+// This is the Windows implementation.
 GameProcessHandler::GameProcessHandler()
 {
     m_processID = GetProcessID(L"okami.exe");
@@ -117,23 +119,7 @@ void GameProcessHandler::SetTypeValue(uintptr_t baseAddressOffset, QVector<unsig
 template void GameProcessHandler::SetTypeValue(uintptr_t baseAddressOffset, QVector<unsigned int> offsets, uintptr_t additionalOffset, Vec3 input);
 template void GameProcessHandler::SetTypeValue(uintptr_t baseAddressOffset, QVector<unsigned int> offsets, uintptr_t additionalOffset, float input);
 template void GameProcessHandler::SetTypeValue(uintptr_t baseAddressOffset, QVector<unsigned int> offsets, uintptr_t additionalOffset, qint8 input);
-/*
-Vec3 GameProcessHandler::GetVec3(uintptr_t baseAddressOffset, QVector<unsigned int> offsets, uintptr_t additionalOffset)
-{
-    Vec3 output;
-    uintptr_t address = GetDynamicMemoryAddress(m_addressOf_main, baseAddressOffset, offsets) + additionalOffset;
-    ReadProcessMemory(m_processHandle, (BYTE*) address, &output, sizeof(output), nullptr);
-    return output;
-}
 
-qint16 GameProcessHandler::Getqint16(uintptr_t baseAddressOffset, QVector<unsigned int> offsets, uintptr_t additionalOffset)
-{
-    qint16 output;
-    uintptr_t address = GetDynamicMemoryAddress(m_addressOf_main, baseAddressOffset, offsets) + additionalOffset;
-    ReadProcessMemory(m_processHandle, (BYTE*) address, &output, sizeof(output), nullptr);
-    return output;
-}
-*/
 #endif
 
 
