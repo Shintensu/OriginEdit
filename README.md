@@ -1,5 +1,5 @@
 # Origin Editor
-This is a Save File Editor for OkamiHD.
+This is a Save File Editor for OkamiHD, using the Qt Framework. Created in Qt Creator with custom class reimplementations
 
 Current Features include
 * Editing Inventory
