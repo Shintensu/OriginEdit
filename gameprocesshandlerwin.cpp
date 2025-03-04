@@ -22,7 +22,7 @@ GameProcessHandler::GameProcessHandler()
 
 GameProcessHandler::~GameProcessHandler()
 {
-    CloseHandle(m_processHandle);
+    if(m_processHandle) CloseHandle(m_processHandle);
 }
 
 DWORD GameProcessHandler::GetProcessID(const wchar_t *processName)

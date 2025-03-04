@@ -212,6 +212,7 @@ void MainWindow::onAttachToGame()
             emit SuccesfullyAttachedToOkami(gameProcessHandler);
         }
         else delete gameProcessHandler;
+        gameProcessHandler = nullptr;
     }
 }
 void MainWindow::onDetachFromGame()

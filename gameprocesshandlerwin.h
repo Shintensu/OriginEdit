@@ -26,11 +26,11 @@ public:
     void FlipBit(uintptr_t baseAddressOffset, QVector<unsigned int> offsets, uintptr_t additionalOffset, int bitIndex);
 
 public:
-    DWORD m_processID;
-    HANDLE m_processHandle;
+    DWORD m_processID = NULL;
+    HANDLE m_processHandle = NULL;
 
-    uintptr_t m_addressOf_main;
-    uintptr_t m_addressOf_flower_kernel;
+    uintptr_t m_addressOf_main = NULL;
+    uintptr_t m_addressOf_flower_kernel = NULL;
 };
 #endif
 

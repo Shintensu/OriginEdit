@@ -94,7 +94,7 @@ private:
 
 
 public:
-    GameProcessHandler* gameProcessHandler;
+    GameProcessHandler* gameProcessHandler = nullptr;
 
     State currentState = Editor;
     SaveSlotListContent* pSaveSlotListContent;

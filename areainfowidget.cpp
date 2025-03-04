@@ -151,6 +151,13 @@ void AreaInfoWidget::LoadValuesFromGame()
 
 void AreaInfoWidget::LoadValuesToGame()
 {
+    if (m_gameProcessHandler->m_processID != m_gameProcessHandler->GetProcessID(L"okami.exe"))
+    {
+        ProcessHandlerDisabled();
+        delete m_gameProcessHandler;
+        return;
+    }
+
     Vec3 coordinates;
     coordinates.x = ui->xSpinBox->value();
     coordinates.y = ui->ySpinBox->value();
