@@ -249,7 +249,7 @@ void SaveFileInfoWidget::InitializeComboBox()
     ui->areaNameComboBox->addItem(tr("Agata Forest")                   ,0x02);
     ui->areaNameComboBox->addItem(tr("Taka Pass")                      ,0x03);
     ui->areaNameComboBox->addItem(tr("Kusa Village")                   ,0x04);
-    ui->areaNameComboBox->addItem(tr("Susa Sanctuary")                 ,0x05);
+    ui->areaNameComboBox->addItem(tr("Sasa Sanctuary")                 ,0x05);
     ui->areaNameComboBox->addItem(tr("City Checkpoint")                ,0x06);
     ui->areaNameComboBox->addItem(tr("Ryoshima Coast")                 ,0x07);
     ui->areaNameComboBox->addItem(tr("N. Ryoshima Coast")              ,0x08);
@@ -274,31 +274,32 @@ void SaveFileInfoWidget::InitializeComboBox()
     ui->areaNameComboBox->addItem(tr("Wawku Shrine")                   ,0x1b);
     ui->areaNameComboBox->addItem(tr("Agata Forest")                   ,0x1c);
     ui->areaNameComboBox->addItem(tr("Kamiki Village")                 ,0x1d);
+
     ui->areaNameComboBox->addItem(tr("Gale Shrine")                    ,0x1e);
     ui->areaNameComboBox->addItem(tr("Imperial Palace")                ,0x1f);
     ui->areaNameComboBox->addItem(tr("N. Ryoshima Coast")              ,0x20);
     ui->areaNameComboBox->addItem(tr("Yoshpet")                        ,0x21);
     ui->areaNameComboBox->addItem(tr("Kamui (Ezofuji)")                ,0x22);
-    ui->areaNameComboBox->addItem(tr("Tsuta Ruins (Mid.)")             ,0x22);
-    ui->areaNameComboBox->addItem(tr("Tsuta Ruins (Deep)")             ,0x23);
-    ui->areaNameComboBox->addItem(tr("Gale Shrine (Deep)")             ,0x24);
-    ui->areaNameComboBox->addItem(tr("Emperor's Body")                 ,0x25);
-    ui->areaNameComboBox->addItem(tr("Oni Island (Interior/4F)")       ,0x26);
-    ui->areaNameComboBox->addItem(tr("Wawku Shrine (Mid.)")            ,0x27);
-    ui->areaNameComboBox->addItem(tr("Wawku Shrine (Deep)")            ,0x28);
-    ui->areaNameComboBox->addItem(tr("Ark of Yamato")                  ,0x29);
-    ui->areaNameComboBox->addItem(tr("Oni Island (High)")              ,0x2a);
-    ui->areaNameComboBox->addItem(tr("Ponc'Tan")                       ,0x2b);
-    ui->areaNameComboBox->addItem(tr("Hana Valley")                    ,0x2c);
-    ui->areaNameComboBox->addItem(tr("Catcall Tower")                  ,0x2d);
-    ui->areaNameComboBox->addItem(tr("Yoshpet")                        ,0x2e);
-    ui->areaNameComboBox->addItem(tr("Kamui (Inner Ezofuji)")          ,0x2f);
-    ui->areaNameComboBox->addItem(tr("Himiko's Palace")                ,0x30);
-    ui->areaNameComboBox->addItem(tr("Sei-an City (Aristocratic Qtr.)"),0x31);
-    ui->areaNameComboBox->addItem(tr("Oni Island (Interior/3F)")       ,0x32);
-    ui->areaNameComboBox->addItem(tr("Kamui (Ezofuji)")                ,0x33);
-    ui->areaNameComboBox->addItem(tr("Start from beginning")           ,0x34);
-    ui->areaNameComboBox->addItem(tr("Corrupted game data")            ,0x35);
+    ui->areaNameComboBox->addItem(tr("Tsuta Ruins (Mid.)")             ,0x23);
+    ui->areaNameComboBox->addItem(tr("Tsuta Ruins (Deep)")             ,0x24);
+    ui->areaNameComboBox->addItem(tr("Gale Shrine (Deep)")             ,0x25);
+    ui->areaNameComboBox->addItem(tr("Emperor's Body")                 ,0x26);
+    ui->areaNameComboBox->addItem(tr("Oni Island (Interior/4F)")       ,0x27);
+    ui->areaNameComboBox->addItem(tr("Wawku Shrine (Mid.)")            ,0x28);
+    ui->areaNameComboBox->addItem(tr("Wawku Shrine (Deep)")            ,0x29);
+    ui->areaNameComboBox->addItem(tr("Ark of Yamato")                  ,0x2a);
+    ui->areaNameComboBox->addItem(tr("Oni Island (High)")              ,0x2b);
+    ui->areaNameComboBox->addItem(tr("Ponc'Tan")                       ,0x2c);
+    ui->areaNameComboBox->addItem(tr("Hana Valley")                    ,0x2d);
+    ui->areaNameComboBox->addItem(tr("Catcall Tower")                  ,0x2e);
+    ui->areaNameComboBox->addItem(tr("Yoshpet")                        ,0x2f);
+    ui->areaNameComboBox->addItem(tr("Kamui (Inner Ezofuji)")          ,0x30);
+    ui->areaNameComboBox->addItem(tr("Himiko's Palace")                ,0x31);
+    ui->areaNameComboBox->addItem(tr("Sei-an City (Aristocratic Qtr.)"),0x32);
+    ui->areaNameComboBox->addItem(tr("Oni Island (Interior/3F)")       ,0x33);
+    ui->areaNameComboBox->addItem(tr("Kamui (Ezofuji)")                ,0x34);
+    ui->areaNameComboBox->addItem(tr("Start from beginning")           ,0x35);
+    ui->areaNameComboBox->addItem(tr("Corrupted game data")            ,0x36);
 }
 
 void SaveFileInfoWidget::ReadRealtime(quint64 time)
